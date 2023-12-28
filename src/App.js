@@ -3,12 +3,11 @@ import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from './MovieCard';
 
-const API_URL = 'https://www.omdbapi.com/?apikey=1b68ee50';
+const API_URL = 'https://www.omdbapi.com/?apikey=d25ba319';
 
 const App = () => {
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [filmNotFound, setFilmNotFound] = useState(false);
 
     useEffect(() => {
         searchMovies("");
@@ -21,10 +20,9 @@ const App = () => {
 
             if (data.Response === 'True') {
                 setMovies(data.Search);
-                setFilmNotFound(false);
             } else {
                 setMovies([]);
-                setFilmNotFound(true);
+
             }
 
         } catch (error) {
